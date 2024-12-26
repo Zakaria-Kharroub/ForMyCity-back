@@ -1,0 +1,240 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1735148169339-1
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_authoritylocal
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  name: department
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+            tableName: authority_local
+  - changeSet:
+      id: 1735148169339-2
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_city
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: region
+                  type: VARCHAR(255)
+              - column:
+                  name: country
+                  type: VARCHAR(255)
+            tableName: city
+  - changeSet:
+      id: 1735148169339-3
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_notification
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: content
+                  type: VARCHAR(255)
+              - column:
+                  name: reclamation_id
+                  type: VARCHAR(255)
+            tableName: notification
+  - changeSet:
+      id: 1735148169339-4
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_reclamation
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: localisation
+                  type: VARCHAR(255)
+              - column:
+                  name: photo
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: DATETIME
+              - column:
+                  name: updated_at
+                  type: DATETIME
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  name: user_id
+                  type: VARCHAR(255)
+              - column:
+                  name: city_id
+                  type: VARCHAR(255)
+              - column:
+                  name: task_id
+                  type: VARCHAR(255)
+            tableName: reclamation
+  - changeSet:
+      id: 1735148169339-5
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_task
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: DATETIME
+              - column:
+                  name: deadline
+                  type: DATETIME
+              - column:
+                  name: status
+                  type: VARCHAR(255)
+              - column:
+                  name: authority_local_id
+                  type: VARCHAR(255)
+            tableName: task
+  - changeSet:
+      id: 1735148169339-6
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user
+                  name: id
+                  type: VARCHAR(255)
+              - column:
+                  name: nom
+                  type: VARCHAR(255)
+              - column:
+                  name: prenom
+                  type: VARCHAR(255)
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: cin
+                  type: VARCHAR(255)
+              - column:
+                  name: adresse
+                  type: VARCHAR(255)
+              - column:
+                  name: is_actif
+                  type: BOOLEAN
+              - column:
+                  name: role
+                  type: VARCHAR(255)
+            tableName: user
+  - changeSet:
+      id: 1735148169339-7
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: reclamation_id
+            baseTableName: notification
+            constraintName: FK_NOTIFICATION_ON_RECLAMATION
+            referencedColumnNames: id
+            referencedTableName: reclamation
+  - changeSet:
+      id: 1735148169339-8
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: city_id
+            baseTableName: reclamation
+            constraintName: FK_RECLAMATION_ON_CITY
+            referencedColumnNames: id
+            referencedTableName: city
+  - changeSet:
+      id: 1735148169339-9
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: task_id
+            baseTableName: reclamation
+            constraintName: FK_RECLAMATION_ON_TASK
+            referencedColumnNames: id
+            referencedTableName: task
+  - changeSet:
+      id: 1735148169339-10
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: reclamation
+            constraintName: FK_RECLAMATION_ON_USER
+            referencedColumnNames: id
+            referencedTableName: user
+  - changeSet:
+      id: 1735148169339-11
+      author: Youcode (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: authority_local_id
+            baseTableName: task
+            constraintName: FK_TASK_ON_AUTHORITY_LOCAL
+            referencedColumnNames: id
+            referencedTableName: authority_local
+
