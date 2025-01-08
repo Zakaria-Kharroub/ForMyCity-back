@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user")
-public class User {
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
