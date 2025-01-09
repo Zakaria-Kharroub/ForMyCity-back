@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -18,7 +19,8 @@ import java.util.List;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
+    private String code;
 
     private String nom;
     private String prenom;
