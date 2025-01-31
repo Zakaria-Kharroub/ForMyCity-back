@@ -1,8 +1,7 @@
 # ForMyCity - Platform for Urban Problem Reporting and Tracking
 
 ## Project Overview
-**ForMyCity** is an online platform that facilitates communication between citizens and local authorities for reporting urban issues and tracking progress. It encourages community engagement by providing a centralized, digital solution that improves interactions and optimizes processes.
-
+**ForMyCity** is an online platform that facilitates communication between citizens and local authorities for  reporting urban issues and tracking progress. It encourages community engagement by providing a centralized, digital solution that improves interactions and optimizes processes.
 ---
 
 ![Thumbnail 1](https://github.com/Zakaria-Kharroub/ForMyCity-back/blob/d4ac62457ae8e519f94b8bcbb449093f7b8e7aa2/formycity.webp)
