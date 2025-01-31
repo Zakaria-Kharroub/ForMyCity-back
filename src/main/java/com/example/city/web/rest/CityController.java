@@ -5,6 +5,7 @@ import com.example.city.dto.CityDTO;
 import com.example.city.service.CityService;
 import com.example.city.web.vm.CityVM;
 import com.example.city.web.vm.mapper.CityMapper;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class CityController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<CityDTO> save(@RequestBody CityVM cityVM){
+    public ResponseEntity<CityDTO> save(@RequestBody @Valid CityVM cityVM){
         City city = cityMapper.toEntity(cityVM);
         City savedCity = cityService.save(city);
         CityDTO cityDTO = cityMapper.toDTO(savedCity);
